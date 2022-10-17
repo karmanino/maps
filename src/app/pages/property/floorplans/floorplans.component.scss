@@ -1,0 +1,28 @@
+.floorplan {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    place-items: center;
+    padding: 6px;
+    border-bottom: 1px solid #dedede;
+    font-size: small;
+}
+
+.bed-bath-sqft, .price-range {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    bottom: 10%
+}
+
+.layout-img {
+    display: block;
+    max-width: 100%;
+    margin: 10px auto 0 auto;
+}

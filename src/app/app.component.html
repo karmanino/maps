@@ -1,0 +1,9 @@
+<div class="loading" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main">
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+    <app-map></app-map>
+</div>

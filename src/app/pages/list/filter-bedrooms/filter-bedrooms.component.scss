@@ -1,0 +1,19 @@
+.bed-filter-container {
+    display: flex;
+    padding: 4px 8px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: solid 2px lightgray;
+
+    mat-icon {
+        color: #2196f3;
+    }
+}
+
+mat-checkbox {
+    padding-left:20px;
+}
+
+::ng-deep .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+    background-color: #2196f3;
+}

@@ -1,0 +1,39 @@
+<ng-container *ngIf="propertyInfo; else container">
+    <div class="content">
+        <app-property-favorite-button></app-property-favorite-button>
+        <header (click)="showList()">
+            <h4>Back to Results</h4>
+        </header>
+        <div class="address">
+            <h3>{{propertyInfo.name}}</h3>
+            <h4>{{propertyInfo.streetAddress}} | <span *ngIf="propertyInfo.phone"
+                    class="phone">{{propertyInfo.phone}}</span><a href="{{propertyInfo.url}}" target="_blank"
+                    *ngIf="propertyInfo.url">
+                    <mat-icon>public</mat-icon>
+                </a>
+                <a href="http://maps.google.com/?daddr={{propertyInfo.streetAddress}},{{propertyInfo.city}}"
+                    target="_blank">
+                    <mat-icon>directions_car</mat-icon>
+                </a>
+            </h4>
+        </div>
+        <div class="photos">
+            <img *ngFor="let thumbnail of propertyInfo.thumbnails" src="{{thumbnail}}">
+            <p class="text">{{propertyInfo.photos.length}} Photos</p>
+        </div>
+        <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="Plans">
+                <app-floorplans></app-floorplans>
+            </mat-tab>
+            <mat-tab label="Overview">
+                <app-details></app-details>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</ng-container>
+
+<ng-template #container>
+    <div class="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

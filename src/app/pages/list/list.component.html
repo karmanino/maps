@@ -1,0 +1,40 @@
+<div class="list-container">
+    <header>
+        <h4>Smart - Assessment - Juan José Armanino</h4>
+        <app-fav-button></app-fav-button>
+    </header>
+    <div class="filters-container">
+        <div class="filter" (click)="filterPriceRange.active = !filterPriceRange.active; filterBedrooms.active = false">
+            <label>Rent<mat-icon>{{filterPriceRange.active ? 'arrow_drop_up' : 'arrow_drop_down'}}</mat-icon>
+            </label><label>$700,00 - {{ filterPriceRange.max | currency}}</label>
+        </div>
+        <div class="filter" (click)="filterBedrooms.active = !filterBedrooms.active; filterPriceRange.active = false">
+            <label>Bedrooms
+                <mat-icon>{{filterBedrooms.active ? 'arrow_drop_up' : 'arrow_drop_down'}}</mat-icon>
+            </label><label>{{filterBedrooms.textToDisplay}}</label>
+        </div>
+    </div>
+    <app-filter-price-range *ngIf="filterPriceRange.active"></app-filter-price-range>
+    <app-filter-bedrooms *ngIf="filterBedrooms.active"></app-filter-bedrooms>
+    <main>
+        <ng-container *ngIf="records.length > 0 else noRecords">
+            <mat-card class="property" *ngFor="let record of records" (click)="viewInfo(record)">
+                <div class="property-info">
+                    <mat-card-title><mat-icon *ngIf="record.favorite">favorite</mat-icon>{{record.name}}</mat-card-title>
+                    <mat-card-subtitle>{{record.streetAddress}}</mat-card-subtitle>
+                    <div class="floorplans">
+                        <div class="floorplan-info" *ngFor="let floorplan of record.floorplans">
+                            <img src="https://my.smartapartmentdata.com/assets/images/{{floorplan.bedrooms}}-bed.svg">
+                            {{floorplan.price | currency}}+
+                        </div>
+                    </div>
+                    <p>{{record.highValueAmenities?.length}} High value amenities</p>
+                </div>
+                <div class="property-photo">
+                    <img src="{{record.photo}}">
+                </div>
+            </mat-card>
+        </ng-container>
+        <ng-template #noRecords><div class="noRecords">No property meets the criteria</div></ng-template>
+    </main>
+</div>

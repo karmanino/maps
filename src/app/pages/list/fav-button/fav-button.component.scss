@@ -1,0 +1,20 @@
+.mat-fab {
+    background-color: #a5b3ba;
+
+    mat-icon {
+        color: white;
+    }
+}
+
+.active {
+    background-color: #ef0000;
+
+    mat-icon {
+        color: #FFD955;
+    }
+}
+
+.mat-fab._mat-animation-noopable,
+mat-icon {
+    transition: all 0.5s ease-out !important;
+}

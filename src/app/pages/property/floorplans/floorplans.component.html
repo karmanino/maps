@@ -1,0 +1,19 @@
+<div *ngFor="let floorplan of floorplans" class="floorplan" [class.selectable]="floorplan.photoUrl">
+    <div *ngIf="floorplan.photoUrl" class="layout" (click)="viewLayout(floorplan)">
+        <mat-icon>{{ layoutView ? 'zoom_out' : 'zoom_in'}}</mat-icon>
+    </div>
+    <div class="bed-bath-sqft">
+        <span>{{floorplan.bed}} Bed, {{floorplan.bath}} Bath</span>
+        <span>{{floorplan.sqft}} sqft</span>
+    </div>
+    <div>
+        {{floorplan.washerDryer || 'NO_CONNECTIONS'}}
+    </div>
+    <div class="price-range">
+        <span *ngIf="floorplan.price !== floorplan.priceMax">{{(floorplan.price | currency)}}</span>
+        <span>{{floorplan.priceMax | currency}}</span>
+    </div>
+</div>
+<div *ngIf="layoutView">
+    <img src="{{floorplans[0].photoUrl}}" class="layout-img">
+</div>

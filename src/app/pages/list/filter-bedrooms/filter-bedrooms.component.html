@@ -1,0 +1,9 @@
+<div class="bed-filter-container" [formGroup]="bedroomsForm">
+    <mat-checkbox class="example-margin" color="primary" formControlName="studio"> Studio</mat-checkbox>
+    <mat-checkbox class="example-margin" color="primary" formControlName="one">1 bed</mat-checkbox>
+    <mat-checkbox class="example-margin" color="primary" formControlName="two">2 bed</mat-checkbox>
+    <mat-checkbox class="example-margin" color="primary" formControlName="three">3 bed</mat-checkbox>
+    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="saveSelection()">
+        <mat-icon>check_circle</mat-icon>
+    </button>
+</div>

@@ -1,0 +1,7 @@
+<div class="price-range-container">
+    <mat-slider thumbLabel step="100" [min]="bounds[0]" [max]="bounds[1]" aria-label="units" color="primary"
+        [formControl]="slider"></mat-slider>
+    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="setFilter()">
+        <mat-icon>check_circle</mat-icon>
+    </button>
+</div>

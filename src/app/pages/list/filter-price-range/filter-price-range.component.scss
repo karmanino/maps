@@ -1,0 +1,24 @@
+.price-range-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 2px lightgray;
+
+    mat-icon {
+        color: #2196f3;
+    }
+}
+
+mat-slider {
+    width: 75%;
+    padding: 6px 24px;
+    margin-right: 10px;
+}
+
+::ng-deep .mat-slider-thumb, .mat-slider.mat-primary .mat-slider-thumb-label {
+    background-color: #2196f3 !important;
+}
+
+::ng-deep .mat-slider.mat-primary .mat-slider-thumb-label{
+    background-color: #0085f3 !important;
+}
